@@ -1,10 +1,16 @@
-<form action="answer.php" method="post">
+<?php
+
+
+
+
+?>
+<form action="index.php" method="post">
     <a>Connaitre le nombre de grammes : </a>
     <br><br>
     <input name="GluPour100" value="Glu pour 100 gr" />
     <input name="GluVoulus" value="Glu voulus" />
 
-    <input type="submit" name="GetGr_button" value="Valider" />
+    <input type="submit" name="getGrRep_button" value="Valider" />
 
 
 </form>

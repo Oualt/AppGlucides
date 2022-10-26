@@ -1,27 +1,49 @@
 <html>
-  <body>
-    <form action="GetGr.php" method="post">
-      <input
-        type="submit"
-        name="my_form_submit_button"
-        value="Connaitre le nombre de grammes"
-      />
-    </form>
-    <form action="GetGlu.php" method="post">
-      <input
-        type="submit"
-        name="my_form_submit_button"
-        value="Connaitre le nombre de glucides"
-      />
-    </form>
-    <form action="doses.php" method="post">
-      <input
-        type="submit"
-        name="my_form_submit_button"
-        value="Connaitre le nombre d'unités à prendre"
-      />
-    </form>
 
+<body>
+    <?php
+
+
+    if (isset($_POST['doses_button'])) {
+        $menu = "doses";
+    } else if (isset($_POST['getGr_button'])) {
+        $menu = "getGr";
+    } else if (isset($_POST['getGlu_button'])) {
+        $menu = "getGlu";
+    } else if (isset($_POST['retourMenu_button'])) {
+        $menu = "menu";
+    } else if (isset($_POST['dosesRep_button'])) {
+        $menu = "answer";
+    } else if (isset($_POST['getGrRep_button'])) {
+        $menu = "answer";
+    } else if (isset($_POST['getGluRep_button'])) {
+        $menu = "answer";
+    } else {
+        $menu = "menu";
+    };
+
+    switch ($menu) {
+        case "doses":
+            include('Doses.php');
+            break;
+        case "getGr":
+            include('GetGr.php');
+            break;
+        case "getGlu":
+            include('GetGlu.php');
+            break;
+        case "answer":
+            include('answer.php');
+            break;
+        case "menu":
+            include('menu.php');
+            break;
+        default:
+            include('retourMenu.php');
+            break;
+    };
+
+    ?>
     <!-- <form action="answer.php" method="post">
         <input name="GluPour100" value="Glu pour 100 gr" />
         <input name="GrVoulus" value="Gr voulus" />
@@ -29,5 +51,6 @@
         <input type="submit" name="my_form_submit_button" value="Valider" />
 
     </form> -->
-  </body>
+</body>
+
 </html>

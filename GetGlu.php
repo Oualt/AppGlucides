@@ -1,10 +1,10 @@
-<form action="answer.php" method="post">
+<form action="index.php" method="post">
     <a>Connaitre le nombre de glucides : </a>
     <br><br>
     <input name="GluPour100" value="Glu pour 100 gr" />
     <input name="GrVoulus" value="Gr voulus" />
 
-    <input type="submit" name="GetGlu_button" value="Valider" />
+    <input type="submit" name="getGluRep_button" value="Valider" />
 
 
 </form>

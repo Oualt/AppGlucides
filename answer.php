@@ -24,15 +24,15 @@ function Doses($taux)
 
 // or $_POST['GrVoulus'] == "" or is_int($_POST['GrVoulus'])
 
-if (isset($_POST['GetGlu_button'])) {
+if (isset($_POST['getGluRep_button'])) {
     $result = GetGlu($_POST['GluPour100'], $_POST['GrVoulus']);
     echo "Pour les " . $_POST['GrVoulus'] . " grammes voulus, tu auras " . $result . " glucides.";
 }
 // ---
-else if (isset($_POST['GetGr_button'])) {
+else if (isset($_POST['getGrRep_button'])) {
     $result = GetGr($_POST['GluPour100'], $_POST['GluVoulus']);
     echo "Pour les " . $_POST['GluVoulus'] . " glucides voulus, tu dois prendre " . $result . " grammes.";
-} else if (isset($_POST['doses_button'])) {
+} else if (isset($_POST['dosesRep_button'])) {
     // ----
     $result = Doses($_POST['Taux']);
     echo "Ton taux est de " . $_POST['Taux'] . ". Tu dois prendre " . $result . " unités.";
