@@ -51,6 +51,7 @@ function validChoice(e) {
   choice = e.target.textContent;
   switch (choice) {
     case "Connaitre le nombre de grammes":
+      changeTitle("Connaitre le nombre de grammes");
       label01.textContent = "Glu pour 100 gr";
       label02.textContent = "Glu voulus";
       setValider("getGr");
@@ -60,6 +61,7 @@ function validChoice(e) {
       reveal(btnRetourMenu);
       break;
     case "Connaitre le nombre de glucides":
+      changeTitle("Connaitre le nombre de glucides");
       label01.textContent = "Glu pour 100 gr";
       label02.textContent = "Gr voulus";
       setValider("getGlu");
@@ -68,9 +70,21 @@ function validChoice(e) {
       hideAll(arrayDiv);
       reveal(btnRetourMenu);
       break;
-    case "Connaitre le nombre d'unités à prendre":
+    case "Unités à prendre si je ne mange pas et que mon taux est élevé":
+      changeTitle(
+        "Unités à prendre si je ne mange pas et que mon taux est élevé"
+      );
       label01.textContent = "Mon taux actuel";
       setValider("doses");
+      reveal(choixContainer);
+      hide(choix02);
+      hide(menu);
+      hideAll(arrayDiv);
+      reveal(btnRetourMenu);
+      break;
+    case "Voir mes bolus selon mon taux":
+      label01.textContent = "Mon taux actuel";
+      setValider("bolus");
       reveal(choixContainer);
       hide(choix02);
       hide(menu);
@@ -129,6 +143,8 @@ function setValider(x) {
     btnValider.addEventListener("click", GetGr);
   } else if (x == "doses") {
     btnValider.addEventListener("click", Doses);
+  } else if (x == "bolus") {
+    btnValider.addEventListener("click", Bolus);
   }
 }
 
@@ -163,6 +179,43 @@ function Doses() {
   formule = input01 * 3 + 1;
   answer.textContent =
     "Ton taux est de " + input01 + ". Tu dois prendre " + formule + " unités.";
+  reveal(answer);
+}
+
+function Bolus() {
+  input01 = document.querySelector("#input01").value;
+  if (input01 < 0.8) {
+    answer.textContent =
+      "Ton taux est de " +
+      input01 +
+      ". Tu dois enlever 1 unité à ton bolus fixe.";
+  } else if (input01 >= 0.8 && input01 < 1.7) {
+    answer.textContent =
+      "Ton taux est de " + input01 + ". Tu dois faire ton bolus fixe.";
+  } else if (input01 >= 1.7 && input01 < 2.4) {
+    answer.textContent =
+      "Ton taux est de " +
+      input01 +
+      ". Tu dois ajouter 1 unité à ton bolus fixe.";
+  } else if (input01 >= 2.4 && input01 < 3.4) {
+    answer.textContent =
+      "Ton taux est de " +
+      input01 +
+      ". Tu dois ajouter 2 unités à ton bolus fixe.";
+  } else if (input01 >= 3.4 && input01 < 4.4) {
+    answer.textContent =
+      "Ton taux est de " +
+      input01 +
+      ". Tu dois ajouter 3 unités à ton bolus fixe.";
+  } else if (input01 >= 4.4 && input01 < 5.3) {
+    answer.textContent =
+      "Ton taux est de " +
+      input01 +
+      ". Tu dois ajouter 4 unités à ton bolus fixe.";
+  } else {
+    answer.textContent =
+      "Si tu es HI, tu dois ajouter 5 unités à ton bolus fixe.";
+  }
   reveal(answer);
 }
 
