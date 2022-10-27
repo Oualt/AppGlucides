@@ -81,7 +81,9 @@ function validChoice(e) {
       //e.preventDefault();
       input01 = document.querySelector("#input01").value;
       input02 = document.getElementById("input02").value;
+
       hide(choixContainer);
+
       answer.textContent = GetGlu();
       break;
 
@@ -170,6 +172,7 @@ hide(btnRetourMenu);
 
 function ReturnToMenu() {
   changeTitle("Menu");
+  reveal(choix02);
   hide(choixContainer);
   hide(answer);
   revealAll();

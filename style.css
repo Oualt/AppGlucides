@@ -81,7 +81,7 @@ body {
   cursor: pointer;
   color: white;
   font-size: 25px;
-  width: 25rem;
+  width: 15rem;
   padding: 0.2em 0.4em;
   margin: auto;
   margin-top: 0.2em;
@@ -304,10 +304,11 @@ body {
 }
 
 .choix {
-  display: inline-block;
+  /* display: inline-block; */
 }
 
 #button-choix {
+  display: list-item;
   background: #311508;
   background: -webkit-linear-gradient(to right, #3d1212, #712f0e);
   background: linear-gradient(to right, #3c2424f8, #712f0e);
@@ -334,7 +335,7 @@ body {
   border: 2px solid black;
   color: white;
   font-size: 25px;
-  width: 35rem;
+  width: 17rem;
   padding: 0.2em 0.4em;
   margin: auto;
   margin-top: 0.2em;
@@ -366,7 +367,7 @@ body {
   padding: 10px;
   color: white;
   font-size: 25px;
-  width: 30rem;
+  width: 15rem;
   height: auto;
   margin: auto;
   position: relative;
