@@ -52,8 +52,8 @@ function validChoice(e) {
   switch (choice) {
     case "Connaitre le nombre de grammes":
       changeTitle("Connaitre le nombre de grammes");
-      label01.textContent = "Glu pour 100 gr";
-      label02.textContent = "Glu voulus";
+      label01.textContent = "Glucides pour 100 gr";
+      label02.textContent = "Glucides voulus";
       setValider("getGr");
       reveal(choixContainer);
       hide(menu);
@@ -62,8 +62,8 @@ function validChoice(e) {
       break;
     case "Connaitre le nombre de glucides":
       changeTitle("Connaitre le nombre de glucides");
-      label01.textContent = "Glu pour 100 gr";
-      label02.textContent = "Gr voulus";
+      label01.textContent = "Glucides pour 100 gr";
+      label02.textContent = "Grammes voulus";
       setValider("getGlu");
       reveal(choixContainer);
       hide(menu);
