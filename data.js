@@ -8,10 +8,16 @@ var menu = document.querySelector("#menu");
 var label01 = document.querySelector("#label01");
 var label02 = document.querySelector("#label02");
 var answer = document.querySelector("#answer");
+var answerValue;
 var btnValider = document.querySelector("#button-choix");
 var btnRetourMenu = document.querySelector("#retour-menu");
 var clone;
+var btnAjoutTotal = document.querySelector("#ajout-total");
+var total = 0;
+var totalView = document.querySelector("#total");
+var totalListener = false;
 
+btnAjoutTotal.addEventListener("click", AjoutTotal);
 btnRetourMenu.addEventListener("click", ReturnToMenu);
 
 function addDiv(x, e = "choi") {
@@ -150,6 +156,7 @@ function GetGlu() {
   input01 = document.querySelector("#input01").value;
   input02 = document.getElementById("input02").value;
   formule = (input01 / 100) * input02;
+  answerValue = formule;
   answer.textContent =
     "Pour les " +
     input02 +
@@ -157,12 +164,14 @@ function GetGlu() {
     formule +
     " glucides.";
   reveal(answer);
+  reveal(btnAjoutTotal);
 }
 
 function GetGr() {
   input01 = document.querySelector("#input01").value;
   input02 = document.getElementById("input02").value;
   formule = (100 / input01) * input02;
+  answerValue = input02;
   answer.textContent =
     "Pour les " +
     input02 +
@@ -170,6 +179,7 @@ function GetGr() {
     formule +
     " grammes.";
   reveal(answer);
+  reveal(btnAjoutTotal);
 }
 
 function Doses() {
@@ -217,9 +227,35 @@ function Bolus() {
   reveal(answer);
 }
 
+function AjoutTotal() {
+  total += parseInt(answerValue);
+  ReturnToMenu();
+}
+
+function afficheTotal() {
+  if (total > 0) {
+    totalView.textContent = "Tu as " + total + " glucides.";
+    reveal(totalView);
+    if (totalListener == false) {
+      totalListener = true;
+      totalView.addEventListener("click", EraseTotal);
+    }
+  } else {
+    hide(totalView);
+  }
+}
+
+function EraseTotal() {
+  total = 0;
+  totalListener = false;
+  hide(totalView);
+}
+
 hide(choixContainer);
 hide(answer);
 hide(btnRetourMenu);
+hide(btnAjoutTotal);
+afficheTotal();
 
 function ReturnToMenu() {
   changeTitle("Menu");
@@ -229,8 +265,11 @@ function ReturnToMenu() {
   document.querySelector("#answer").textContent = "";
   revealAll();
   hide(btnRetourMenu);
+  hide(btnAjoutTotal);
   document.querySelector("#input01").value = "";
   document.querySelector("#input02").value = "";
+  answerValue = 0;
+  afficheTotal();
 }
 
 function changeTitle(x) {

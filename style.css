@@ -370,3 +370,43 @@ body {
 
   text-align: center;
 }
+
+#ajout-total {
+  background: #311508;
+  background: -webkit-linear-gradient(to right, #7476e8f8, #3b2bb3);
+  background: linear-gradient(to right, #7476e8f8, #3b2bb3);
+  border: 2px solid black;
+  cursor: pointer;
+  color: white;
+  font-size: 25px;
+  width: 12.5rem;
+  padding: 0.2em 0.4em;
+  margin: auto;
+  margin-top: 0.2em;
+}
+
+#ajout-total:hover {
+  background: black;
+  border: 2px solid white;
+  transform: translate(0.5rem) rotateZ(1deg);
+}
+
+#total {
+  background: #311508;
+  background: -webkit-linear-gradient(to right, #7476e8f8, #3b2bb3);
+  background: linear-gradient(to right, #7476e8f8, #3b2bb3);
+  border: 2px solid black;
+  cursor: pointer;
+  color: white;
+  font-size: 25px;
+  width: 12.5rem;
+  padding: 0.2em 0.4em;
+  margin: auto;
+  margin-top: 0.2em;
+}
+
+#total:hover {
+  background: black;
+  border: 2px solid white;
+  transform: translate(0.5rem) rotateZ(1deg);
+}
