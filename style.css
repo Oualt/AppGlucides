@@ -339,8 +339,8 @@ body {
 
 #retour-menu {
   background: #311508;
-  background: -webkit-linear-gradient(to right, #3d1212, #712f0e);
-  background: linear-gradient(to right, #3c2424f8, #712f0e);
+  background: -webkit-linear-gradient(to right, #7476e8f8, #3b2bb3);
+  background: linear-gradient(to right, #7476e8f8, #3b2bb3);
   border: 2px solid black;
   color: white;
   font-size: 25px;
