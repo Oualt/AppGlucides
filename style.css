@@ -1,7 +1,7 @@
 html,
 body {
-  background: -webkit-linear-gradient(to right, #712f0e, #3d1212);
-  background: linear-gradient(to right, #712f0e, #3d1212);
+  background: -webkit-linear-gradient(to right, #000000, #000000);
+  background: linear-gradient(to right, #000000, #000000);
   height: 100%;
   min-width: 300px;
   text-align: center;
@@ -326,8 +326,8 @@ body {
 
 #answer {
   background: #311508;
-  background: -webkit-linear-gradient(to right, #3d1212, #712f0e);
-  background: linear-gradient(to right, #3c2424f8, #712f0e);
+  background: -webkit-linear-gradient(to right, #7476e8f8, #3b2bb3);
+  background: linear-gradient(to right, #7476e8f8, #3b2bb3);
   border: 2px solid black;
   color: white;
   font-size: 25px;
