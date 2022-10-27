@@ -10,17 +10,11 @@ var label02 = document.querySelector("#label02");
 var answer = document.querySelector("#answer");
 var btnValider = document.querySelector("#button-choix");
 var btnRetourMenu = document.querySelector("#retour-menu");
+var clone;
 
 btnRetourMenu.addEventListener("click", ReturnToMenu);
 
 function addDiv(x, e = "choi") {
-  if (x == "fouiller") {
-    e = "fouiller";
-  } else if (x == "enigme") {
-    e = "enigme";
-  } else {
-    e = "choi";
-  }
   let divbefore = document.querySelector("#menu");
   let div = document.createElement("div");
   div.className = e;
@@ -92,13 +86,12 @@ function validChoice(e) {
       reveal(btnRetourMenu);
       break;
     case "Valider":
-      //e.preventDefault();
       input01 = document.querySelector("#input01").value;
       input02 = document.getElementById("input02").value;
 
       hide(choixContainer);
 
-      answer.textContent = GetGlu();
+      //answer.textContent = GetGlu();
       break;
 
     default:
@@ -137,6 +130,11 @@ function revealAll() {
 }
 
 function setValider(x) {
+  //clone = btnValider.cloneNode(true);
+  btnValider.removeEventListener("click", GetGlu);
+  btnValider.removeEventListener("click", GetGr);
+  btnValider.removeEventListener("click", Doses);
+  btnValider.removeEventListener("click", Bolus);
   if (x == "getGlu") {
     btnValider.addEventListener("click", GetGlu);
   } else if (x == "getGr") {
@@ -161,7 +159,7 @@ function GetGlu() {
   reveal(answer);
 }
 
-function GetGr(gluPour100 = input01, gluVoulus = input02) {
+function GetGr() {
   input01 = document.querySelector("#input01").value;
   input02 = document.getElementById("input02").value;
   formule = (100 / input01) * input02;
@@ -228,6 +226,7 @@ function ReturnToMenu() {
   reveal(choix02);
   hide(choixContainer);
   hide(answer);
+  document.querySelector("#answer").textContent = "";
   revealAll();
   hide(btnRetourMenu);
   document.querySelector("#input01").value = "";
