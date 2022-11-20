@@ -90,6 +90,7 @@ function validChoice(e) {
       hide(menu);
       hideAll(arrayDiv);
       reveal(btnRetourMenu);
+      changeTitle("Voir mes bolus selon mon taux");
       break;
     case "Valider":
       input01 = document.querySelector("#input01").value;
