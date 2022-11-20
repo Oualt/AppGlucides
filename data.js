@@ -161,7 +161,7 @@ function GetGlu() {
     "Pour les " +
     input02 +
     " grammes voulus, tu auras " +
-    formule +
+    Math.round(formule * 10) / 10 +
     " glucides.";
   reveal(answer);
   reveal(btnAjoutTotal);
@@ -176,7 +176,7 @@ function GetGr() {
     "Pour les " +
     input02 +
     " glucides voulus, tu dois prendre " +
-    formule +
+    Math.round(formule * 10) / 10 +
     " grammes.";
   reveal(answer);
   reveal(btnAjoutTotal);
@@ -184,9 +184,13 @@ function GetGr() {
 
 function Doses() {
   input01 = document.querySelector("#input01").value;
-  formule = input01 * 3 + 1;
+  formule = (input01 - 1.6) * 3 + 1;
   answer.textContent =
-    "Ton taux est de " + input01 + ". Tu dois prendre " + formule + " unités.";
+    "Ton taux est de " +
+    input01 +
+    ". Tu dois prendre " +
+    Math.round(formule * 10) / 10 +
+    " unités.";
   reveal(answer);
 }
 
@@ -230,7 +234,7 @@ function Bolus() {
     "Ton taux est de " +
     input01 +
     ". Tu dois ajouter " +
-    reanswer +
+    Math.round(reanswer * 10) / 10 +
     " à ton bolus fixe.";
   reveal(answer);
 }
