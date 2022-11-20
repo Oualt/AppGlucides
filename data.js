@@ -224,6 +224,14 @@ function Bolus() {
     answer.textContent =
       "Si tu es HI, tu dois ajouter 5 unités à ton bolus fixe.";
   }
+  reanswer = input01 - 1.6;
+  reanswer = reanswer * 3;
+  answer.textContent =
+    "Ton taux est de " +
+    input01 +
+    ". Tu dois ajouter " +
+    reanswer +
+    " à ton bolus fixe.";
   reveal(answer);
 }
 
